@@ -1,5 +1,15 @@
 <?php
     session_start();
+    include 'connect.php';
     session_destroy();
-    header('location: ./index.php');
+
+    // if(isset($_SESSION['ROLE'])){
+    //     unset($_SESSION['ROLE']);
+    // }
+
+    // if(isset($_SESSION['IS_LOGIN'])){
+    //     unset($_SESSION['IS_LOGIN']);
+    // }
+
+    header('location: login.php');
 ?>

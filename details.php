@@ -57,7 +57,7 @@
             <div class="row">
                 <ul class="nav nav-tabs">
                     <li class="nav-item" role="presentation">
-                        <a href="#!" class="nav-link active" data-bs-target="#description" type="button" aria-controls="description" aria-selected="true">Mô tả</a>
+                        <a href="#!" class="nav-link active" data-bs-target="#description" type="button" aria-controls="description" aria-selected="true">Description</a>
                     </li>
                 </ul>
 

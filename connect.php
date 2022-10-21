@@ -1,10 +1,9 @@
 
 <?php
-
-    $conn = mysqli_connect("localhost","root","","gtpt");
-    if(!$conn)
-    {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+  $connect = mysqli_connect("localhost","root","","thuchanh");
+  mysqli_set_charset($connect, 'UTF8');
+  if (mysqli_connect_errno())
+  {
+    echo "Không thể kết nối đến MySQL: " . mysqli_connect_error();
+  }
 ?>
-

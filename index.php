@@ -46,10 +46,10 @@
                                 </div>
 
                                 <div class="pt-1 mb-4">
-                                    <button class="btn btn-dark btn-lg btn-block" type="submit" name="btn_login">Đăng nhập</button>
+                                    <button class="btn btn-dark btn-lg btn-block" type="submit" name="btn_login">Login</button>
                                 </div>
 
-                                <a class="small text-muted" href="register.php">Quên mật khẩu</a>
+                                <a class="small text-muted" href="register.php">Register</a>
                             </form>
                         </div>
                         </div>
@@ -60,50 +60,33 @@
         </div>
     </section>
     <?php
-        session_start();
-        include 'connect.php';
-        if (isset($_POST["btn_login"])) {
-            $username = $_POST["Username"];
-            $password = $_POST["Password"];
-            
-            if ($username == "" || $password =="") {
-                echo "<script> alert('Username hoặc password bạn không được để trống!') </script>";
-            }else{
+    session_start();
+    require 'connect.php';
 
-            $sql = "SELECT * FROM user u INNER JOIN motel m ON m.user_id = m.user_id INNER JOIN category c
-            ON c.category_id = m.category_id WHERE u.Username = '$username' AND u.Password = '$password'";
-            $result = mysqli_query($conn, $sql);
-            $count = mysqli_num_rows($result);
-            
-            if ($count == 0) {
-				echo "<script> alert('Tên đăng nhập hoặc mật khẩu không đúng !') </script>";
-            } else{
-				$_SESSION['Username'] = $username;
-                $_SESSION['Password'] = $password;
-
-                $row = mysqli_fetch_array($result);
-                $_SESSION['user'] = $row['user_id'];
-                $_SESSION['category'] = $row['category_id'];
-                $_SESSION['districts'] = $row['district_id'];
-                $_SESSION['ROLE'] = $row['Role'];
-                $_SESSION['IS_LOGIN'] = 'yes';
-                $_SESSION['Name'] = $row['Name'];
-                $_SESSION['Email'] = $row['Email'];
-                $_SESSION['Phone'] = $row['Phone'];
-                $_SESSION['Avatar'] = $row['Avatar'];
-
-                if($row['Role'] == 1){
-                    header('location: view.php');
-                    die();
-                } 
-                // if($row['Role'] == 0){
-                //     header('location: view.php');
-                //     die();
-                // } 
-			}
+    if(isset($_POST["btn_login"])){
+            $user =  $_POST["username"];
+            $pass =  $_POST["password"];
+            if((strlen($user) < 4) || strlen($pass) < 4){
+                $err="Vui lòng nhập tên người dùng !";
+            }
+            else{
+                $sqls = "SELECT * FROM `user` WHERE `username`='".$user."' AND `password`='".md5($pass)."';";
+                $result = mysqli_query($connect,$sqls);
+                $rows = mysqli_num_rows($result);
+                $value = mysqli_fetch_assoc($result);
+                if($rows == 1){ 
+                    $_SESSION['username'] = $user;
+                    $_SESSION['id']  = $value["id"];
+                    $_SESSION['name']  = $value["name"];
+                    $_SESSION['email']  = $value["email"];
+                    $_SESSION['phone']  = $value["phone"];
+                    $_SESSION['avata']  = $value["avata"];
+                    header("Location: view.php");
+                }else{
+                    $err =  "Tên đăng nhập hoặc mật khẩu không đúng!";
+                }
             }
         }
-
-    ?>
+?>
 </body>
 </html>
