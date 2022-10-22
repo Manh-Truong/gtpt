@@ -91,7 +91,7 @@ if (isset($_POST["submit"])) {
                   </form>
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+                  <img src="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg" class="img-fluid" alt="Sample image">
                 </div>
               </div>
             </div>
