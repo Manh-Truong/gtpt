@@ -145,10 +145,9 @@
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                     <div class="wishlist_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918681/heart.png" alt=""></div>
                                     <div class="wishlist_content">
-                                        <div class="wishlist_text"><a href="#">Thành viên</a></div>
-                                        <div class="cart_count"><span>5</span></div>
+                                        <div class="wishlist_text"><a href="#">Xin chào</a></div>
                                         <div class="avata"><img src="<?php echo $_SESSION['Avatar']; ?>" alt="">
-                                            <a href=""><?php echo $_SESSION["name"]; ?></a>
+                                            <a href=""><?php echo $_SESSION["Name"]; ?></a>
                                         </div>
                                     </div>
                                 </div>

@@ -61,39 +61,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-0">
-                            <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="https://xaydungthuanphuoc.com/wp-content/uploads/2022/09/mau-phong-tro-co-gac-lung-dep2028-5.jpg" alt="login form" class="img-fluid h-100 w-100" style="border-radius: 1rem 0 0 1rem;" />
-                            </div>
-                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                                <div class="card-body p-4 p-lg-5 text-black">
-                                    <form action="index.php" method="POST">
-                                        <div class="d-flex align-items-center mb-3 pb-1">
-                                            <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                            <span class="h1 fw-bold mb-0">Phòng trọ</span>
-                                        </div>
-
-                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Đăng nhập</h5>
-
-                                        <div class="form-outline mb-4">
-                                            <input class="form-control form-control-lg" type="text" name="Username" require='require' placeholder="Nhập tên tài khoản" />
-
-                                        </div>
-
-                                        <div class="form-outline mb-4">
-                                            <input type="password" class="form-control form-control-lg" type="password" name="Password" require='require' placeholder="Nhập mật khẩu" />
-
-                                        </div>
-
-                                        <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="submit" name="btn_login">Đăng nhập</button>
-                                        </div>
-
-                                        <a class="small text-muted" href="register.php">Đăng ký</a>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
