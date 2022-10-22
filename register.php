@@ -16,8 +16,6 @@ if (isset($_POST["submit"])) {
   if ($result) {
     header("location: index.php");
   } else {
-    echo "Thất bại" . mysqli_error($connect);
-
     echo "Thất bại" . mysqli_error($conn);
   }
 }
