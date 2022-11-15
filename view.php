@@ -9,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./js/header.js">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <title>Danh sách phòng trọ</title>
     <style>
         .form-control-search {
@@ -154,7 +155,8 @@
                     <div class="motel row">
                         <div class="col-md-5 col-sm-12 col-xs-12" style="margin-top: 20px;">
                             <div>
-                                <a href="details.php?Motel_Id=<?php echo $row['Motel_Id']; ?>" style="text-decoration: none;"><img src="photo/<?php echo $row['images']; ?>" class="img-responsive" style="height: 200px;"></a>
+                                <a href="details.php?Motel_Id=<?php echo $row['Motel_Id']; ?>" style="text-decoration: none;">
+                                    <img src="photo/<?php echo $row['images']; ?>" class="img-responsive" style="height: 200px;"></a>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-12 col-xs-12">
@@ -346,7 +348,13 @@
         }
         ?>
     </div>
-    <?php include("pagination.php"); ?>
+    <div>
+        <?php include("pagination.php"); ?>
+    </div>
+
+    <div style="display: block">
+        <?php include("./footer.php") ?>
+    </div>
 </body>
 
 </html>

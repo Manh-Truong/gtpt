@@ -156,12 +156,12 @@ session_start();
         if(isset($_SESSION["category"])){ $category_id = $_SESSION["category"]; }
         if(isset($_SESSION["districts"])){ $district_id = $_SESSION["districts"]; }
         
-        $img_name = $_FILES['images']['name'];
+        $img_name = $_FILES["images"]["name"];
 
         if(file_exists("../photo/".$img_name)) {
-            $str = $_FILES['images']['name'];
-            $_SESSION['status'] = "Images already exists. '.$str.'";
-            header('Location: ../admin/view-motel.php');
+            $str = $_FILES["images"]["name"];
+            $_SESSION["status"] = "Images already exists. ".$str."";
+            header("Location: ../admin/view-motel.php");
         }
         else{
             $sql = "INSERT INTO motel(title, description, price, area, count_view, 

@@ -53,10 +53,10 @@
                                         </div>
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="submit" name="btn_login">Login</button>
+                                            <button class="btn btn-dark btn-lg btn-block" type="submit" name="btn_login">Đăng nhập</button>
                                         </div>
 
-                                        <a class="small text-muted" href="register.php">Register</a>
+                                        <a class="small text-muted" href="register.php">Đăng ký</a>
                                     </form>
                                 </div>
                             </div>
