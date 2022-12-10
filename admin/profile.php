@@ -1,0 +1,76 @@
+<?php ob_start(); ?>
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin cá nhân</title> 
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <div id="wrapper">
+        <?php include '../admin/sidebar.php'?>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="my-2"></div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Thông tin cá nhân</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="dataTableUser" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <th>Tên người dùng</th>
+                                            <td><?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; }?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td><?php if(isset($_SESSION['email'])) { echo $_SESSION['email']; }?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Số điện thoại</th>
+                                            <td><?php if(isset($_SESSION['phone'])) { echo $_SESSION['phone']; }?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Hình ảnh</th>
+                                            <td><img src="../uploads/<?php if(isset($_SESSION['avatar'])) { echo $_SESSION['avatar'];} ?>" style="height: 200px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+</body>
+</html>
+<?php ob_end_flush(); ?>
