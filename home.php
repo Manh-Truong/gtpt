@@ -2,7 +2,7 @@
     session_start();
     require 'connect.php';
     if(isset($_SESSION["name"])){
-        
+       
     }
     else{
         header("Location: index.php");
@@ -29,26 +29,6 @@
     ?>
     <div class="site">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <a href="home.php?content=view">Xem nhiều nhất</a>
-                </div>
-                <div class="col-lg-2">
-                    <a href="home.php?content=new">Mới đăng tải</a>
-                </div>
-                <div class="col-lg-8">
-                    <select name="khuvuc" id="khuvuc" onchange="genderChanged(this)">
-                        <?php
-                            $sqls = "SELECT * FROM `districks`";
-                            $result = mysqli_query($connect,$sqls);
-                            while($row = mysqli_fetch_array($result)) {
-                                echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
-                            }
-                        ?>
-                    </select>
-                    <a href="home.php?content=addr&id=1" class='addres'>Xem khu vực</a>
-                </div>
-            </div>
             <div class="row">
                 <!-- Get data -->
                 <?php
@@ -92,7 +72,7 @@
                                     </div>
                                     <div class="motel_center">
                                         <h1 class='motel_center_title'>
-                                            <a href="viewmotel.php?id=<?php echo $row["id"]; ?>"> <?php echo $row["title"]; ?></a>
+                                            <a href="viewmotel.php?motel_id=<?php echo $row["motel_id"]; ?>"> <?php echo $row["title"]; ?></a>
                                         </h1>
                                         <?php
                                             $sqls = "SELECT * FROM `user` WHERE `id`=".$row["user_id"];

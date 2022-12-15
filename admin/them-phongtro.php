@@ -54,7 +54,6 @@ session_start();
                 <h5 class="modal-title">Thêm phòng trọ</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>
             </div>
-
             <div class="modal-body">
                 <div class="input-group mb-3">
                     <div class="input-group-append">
@@ -105,10 +104,10 @@ session_start();
                     </div>
                     <select class="custom-select" name="category_id" id="category_id">
                         <?php
-                            $sqls = "SELECT * FROM `category`";
+                            $sqls = "SELECT * FROM `category` WHERE id=1";
                             $result = mysqli_query($connect, $sqls);
                             while($row = mysqli_fetch_array($result)) {
-                                echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+                                echo "<option value= ".$row["id"]." > ".$row["name"]." </option>";
                             }
                         ?>
                     </select>
@@ -168,22 +167,23 @@ session_start();
         $contact =  $_POST["contact"];
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $today = date('Y-m-d H:i:s');
+        $status = $_POST["status"];
         if(strlen($images) > 10){
-            $query = "INSERT INTO `motel`(`count_view`,`title`, `description`, `price`, `area`, `address`, `latlng`, `images`, `user_id`, `category_id`, `district_id`, `utilities`, `phone`, `approve`, `created_at`) 
-            VALUES (0,'".$title."','".$description."',".$price.",".$area.",'".$address."','".$latlng."','".$images."',".$_SESSION['id'].",".$category_id.",".$district_id.",'".$utilities."','".$contact."',1,'".$today."')";
+            $query = "INSERT INTO `motel`(`title`, `description`, `price`, `area`, `address`, `latlng`, `images`, `user_id`, `category_id`, `district_id`, `utilities`, `phone`, `approve`, `created_at`,`status`) 
+            VALUES (0,'".$title."','".$description."',".$price.",".$area.",'".$address."','".$latlng."','".$images."',".$_SESSION['id'].",".$category_id.",".$district_id.",'".$utilities."','".$contact."',1,'".$today."','".$status."')";
         }else{
-            $query = "INSERT INTO `motel`(`count_view`,`title`, `description`, `price`, `area`, `address`, `latlng`,  `user_id`, `category_id`, `district_id`, `utilities`, `phone`, `approve`, `created_at`) 
-            VALUES (0,'".$title."','".$description."',".$price.",".$area.",'".$address."','".$latlng."',".$_SESSION['id'].",".$category_id.",".$district_id.",'".$utilities."','".$contact."',1,'".$today."')";
+            $query = "INSERT INTO `motel`(`title`, `description`, `price`, `area`, `address`, `latlng`,  `user_id`, `category_id`, `district_id`, `utilities`, `phone`, `approve`, `created_at`,`status`) 
+            VALUES (0,'".$title."','".$description."',".$price.",".$area.",'".$address."','".$latlng."',".$_SESSION['id'].",".$category_id.",".$district_id.",'".$utilities."','".$contact."',1,'".$today."','".$status."')";
         }
         $result = mysqli_query($connect,$query);
         if($result){
             echo "<script> alert('Thêm trọ thành công !');</script>";
-            header("Location: ../home.php");
+            header("Location: phongtro.php");
             
         }
         else{
             echo "<script> alert('Thêm trọ thất bại !');</script>";
-            header("Location: ../home.php");
+            header("Location: phongtro.php");
            
         }
     }

@@ -55,7 +55,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fa fa-calendar fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php 
-                                                    $query = ("SELECT * FROM Motel m INNER JOIN category c ON m.category_id = c.id WHERE status = 1");
+                                                    $query = ("SELECT * FROM Motel m INNER JOIN category c ON m.category_id = c.id");
                                                     $query_run = mysqli_query($connect, $query);
                                                     $row = mysqli_num_rows($query_run);
                                                     echo '<h4>'.$row.'</h4>';
@@ -107,7 +107,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

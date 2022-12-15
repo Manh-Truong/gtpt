@@ -81,7 +81,7 @@
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <a href="#changepass_user<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-secondary">
-                                                        <i class="fas fa-unlock-alt"></i> Đổi mật khẩu</a>
+                                                        <i class="fas fa-unlock-alt"></i></a>
                                                     <?php include 'doi-mat-khau.php' ?>
                                                 </td>
                                             <?php } ?>

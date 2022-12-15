@@ -1,9 +1,10 @@
 <?php ob_start(); ?>
-<?php if(!isset($_SESSION)) { 
-session_start(); 
+<?php if (!isset($_SESSION)) {
+    session_start();
 } ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +33,6 @@ session_start();
                 <?php include 'topbar.php' ?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Quản lý các bài đăng</h1>
                     <!-- DataTales Example -->
@@ -42,19 +42,19 @@ session_start();
                         </div>
                         <div class="card-body">
                             <?php
-                                if(isset($_SESSION['success']) && $_SESSION['success'] != ''){
-                                    echo "<script> alert('" .$_SESSION['success']."')</script>";
+                                if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
+                                    echo "<script> alert('" . $_SESSION['success'] . "')</script>";
                                     unset($_SESSION['success']);
                                 }
                             ?>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
+                                    <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tiêu đề</th>
+                                            <th>Tên phòng trọ</th>
                                             <th>Hình ảnh</th>
-                                            <th>Danh mục</th>
+                                            <th>Phân loại trọ</th>
                                             <th>Giá phòng</th>
                                             <th>Trạng thái</th>
                                             <th>Actions</th>
@@ -62,29 +62,31 @@ session_start();
                                     </thead>
                                     <tbody>
                                         <?php
-                                            include("../connect.php"); 
-                                            $query = "SELECT * FROM Motel m INNER JOIN Category c ON m.category_id = c.id";      
-                                            $values = mysqli_query ($connect, $query);   
-                                            while($row = mysqli_fetch_array($values)){
+                                        include("../connect.php");
+                                        $query = "SELECT * FROM Motel m INNER JOIN Category c ON m.category_id = c.id";
+                                        $values = mysqli_query($connect, $query);
+                                        while ($row = mysqli_fetch_array($values)) {
                                         ?>
-                                        <tr>
-                                            <td><?php echo $row['motel_id']; ?></td>
-                                            <td><?php echo $row['title']; ?></td>
-                                            <td><img src="../uploads/<?php echo $row['images']; ?>" style="height: 100px; width: 160px;"></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo number_format($row['price'], 0, ",", "."); ?></td>
-                                            <?php if($row['status'] == 0): ?>
-                                                <td><span class="badge badge-success">Chưa kiểm duyệt</span></td>
-                                            <?php elseif($row['status'] == 1): ?>
-                                                <td><span class="badge badge-danger">Đã kiểm duyệt</span></td>
-                                            <?php elseif($row['status'] == 2): ?>
-                                                <td><span class="badge badge-warning">Sai nội dung</span></td>
-                                            <?php endif; ?>
-                                            <td style="text-align:center;">
-                                                <a href="#edit<?php echo $row['motel_id']; ?>" data-toggle="modal" class="btn btn-info btn-sm"><i class="far fa-eye"></i> Xem</a>
-                                                <?php include 'edit-baidang.php' ?>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td><?php echo $row['motel_id']; ?></td>
+                                                <td><?php echo $row['title']; ?></td>
+                                                <td><img src="../uploads/<?php echo $row['images']; ?>" style="height: 100px; width: 160px;"></td>
+                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo number_format($row['price'], 0, ",", "."); ?></td>
+                                                <?php if ($row['status'] == 0) : ?>
+                                                    <td><span class="badge badge-success">Chưa kiểm duyệt</span></td>
+                                                <?php elseif ($row['status'] == 1) : ?>
+                                                    <td><span class="badge badge-danger">Đã kiểm duyệt</span></td>
+                                                <?php elseif ($row['status'] == 2) : ?>
+                                                    <td><span class="badge badge-warning">Sai nội dung</span></td>
+                                                <?php endif; ?>
+                                                <td style="text-align:center;">
+                                                    <a href="#edit<?php echo $row['motel_id']; ?>" data-toggle="modal" class="btn btn-info btn-sm">
+                                                        <i class="far fa-eye"></i> Xem
+                                                    </a>
+                                                    <?php include 'edit-baidang.php' ?>
+                                                </td>
+                                            </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -117,4 +119,5 @@ session_start();
     <script src="js/demo/datatables-demo.js"></script>
 
 </body>
+
 </html>

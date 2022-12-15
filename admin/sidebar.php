@@ -31,11 +31,6 @@
                     <a class="collapse-item" href="nguoidung.php">Quản lý người dùng</a>
                 </div>
             </div>
-        </li>
-        <hr class="sidebar-divider">
-        <li class="nav-item active">
-            <a class="nav-link" href="../admin/profile.php">
-                <i class="fas fa-user-circle"></i> Thông tin cá nhân</a>
-        </li>
+        </li> 
         <hr class="sidebar-divider">
 </ul>

@@ -37,25 +37,13 @@
                             <h6 class="m-0 font-weight-bold text-dark">Danh sách các phòng trọ</h6>
                         </div>
                         <div class="card-body">
-                            <?php
-                                if(isset($_SESSION['success']) && $_SESSION['success'] != ''){
-                                    echo "<script> alert('" .$_SESSION['success']."')</script>";
-                                    unset($_SESSION['success']);
-                                }
-                                
-                                if(isset($_SESSION['status']) && $_SESSION['status'] != ''){
-                                    echo "<script> alert('" .$_SESSION['status']."')</script>";
-                                    unset($_SESSION['status']);
-                                }
-                            ?>
-
                             <div class="table-responsive">
                                 <table id="dataTableMotel" class="table table-striped table-bordered" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tiêu đề</th>
-                                            <th>Danh mục</th>
+                                            <th>Tên phòng trọ</th>
+                                            <th>Phân loại trọ</th>
                                             <th>Giá phòng</th>
                                             <th>Tình trạng</th>
                                             <th>Trạng thái</th>
@@ -65,7 +53,7 @@
                                     <tbody>
                                         <?php
                                             include("../connect.php"); 
-                                            $query = "SELECT * FROM Motel m INNER JOIN category c ON m.category_id = c.id WHERE status = 1";     
+                                            $query = "SELECT * FROM Motel m INNER JOIN category c ON m.category_id = c.id";     
                                             $values = mysqli_query ($connect, $query);   
                                             while($row = mysqli_fetch_array($values)){
                                         ?>
